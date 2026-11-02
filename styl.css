@@ -7,16 +7,17 @@
 
 body {
     padding: 20px;
-    /*background-image: url(giphy.gif); */
+    background-image: url(images.jpg);
     font-family: sans-serif;
-    /* background-size: cover;
-    background-position: center; */
+    background-position: center; 
+    background-attachment: fixed; /* Dodane: tło zostaje w miejscu przy skrolowaniu */
 }
 
-/* KLUCZ: Ta klasa pilnuje stałej szerokości i środkuje stronę */
+/* ZMIANA: Kontener jest teraz elastyczny na mniejszych ekranach */
 .strona-szerokosc {
-    width: 723px;  /* Sztywna, stała szerokość strony */
-    margin: 0 auto; /* Idealnie środkuje blok w poziomie */
+    width: 100%;             /* Na telefonach bierze całą szerokość */
+    max-width: 723px;        /* Na dużych ekranach zatrzymuje się na Twoich 723px */
+    margin: 0 auto;          /* Idealnie środkuje blok w poziomie */
 }
 
 /* 2. MENU GÓRNE (FLEX) */
@@ -25,21 +26,29 @@ body {
     flex-direction: row;
     align-items: stretch;
     justify-content: space-between; 
-    flex-wrap: wrap;  
+    flex-wrap: nowrap;       /* ZMIANA: elementy menu nie będą przeskakiwać do nowej linii */
     margin-bottom: 0; 
 }
 
 .elem {
-    /* Pilnuje idealnie równej szerokości kafelków */
     flex: 1 1 0%; 
-    padding: 10px;
+    padding: 10px 5px;       /* ZMIANA: mniejszy padding boczny, żeby napisy zmieściły się na telefonie */
     margin-left: -2px; 
     background-color: white;
-
-    /* Zamieniamy sam kafelek w kontener flex, aby tekst był wyśrodkowany */
     display: flex;
-    align-items: center;     /* Centrowanie tekstu góra/dół */
-    justify-content: center;  /* Centrowanie tekstu lewo/prawo */
+    align-items: center;     
+    justify-content: center; 
+    text-decoration: none;   /* Usunięcie podkreślenia linków */
+    color: black;
+    font-size: 14px;         /* ZMIANA: bezpieczna wielkość dla małych ekranów */
+}
+
+/* ZMIANA: Na bardzo małych telefonach zmniejszamy czcionkę w menu, żeby tekst nie wystawał */
+@media (max-width: 480px) {
+    .elem {
+        font-size: 11px;
+        padding: 8px 2px;
+    }
 }
 
 .ramka {
@@ -59,65 +68,28 @@ body {
 }
 
 .tekstD {
-    font-size: 18px;
+    font-size: 14px;
     font-weight: bold;
+}
+@media (max-width: 480px) {
+    .tekstD { font-size: 11px; }
 }
 
 /* 3. DOLNY DUŻY BLOK (HERO) */
+/* 3. DOLNY DUŻY BLOK (HERO) */
 .duzyblokaha {
     width: 100%;
-    height: 50vh; 
+    min-height: 380px;       /* Lekko zwiększona wysokość minimalna dla balansu */
     border: 3px solid black; 
-    
-    /* ZMIANA: Zresetowane do 0px, ponieważ spód łączy się z sekcją O Mnie */
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
-    
     background-color: white;
-    margin-top: -2px; /* Nakładanie ramek na siebie */
-    
+    margin-top: -2px; 
     position: relative; 
-    padding: 15px; 
-    
+    padding: 20px 15px 180px 15px; /* ZMIANA: Zwiększony dolny padding z 120px na 180px, robi miejsce na większy obrazek */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
-
-/* 4. LEWY GIGANTYCZNY TEKST W SŁUPKU */
-.tesktl {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; 
-    align-items: flex-start; 
-    height: 100%; 
-}
-
-.otekst {
-    font-size: 8vh; 
-    font-weight: 900; 
-    line-height: 0.9; 
-    text-transform: uppercase; 
-    color: black;
-}
-
-.szer {
-    width: 300px; 
-}
-
-/* 5. TEKST PO PRAWEJ NA SAMEY GÓRZE */
-.strefa-tekstu {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    
-    text-align: right; 
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    
-    width: auto; 
-    max-width: 250px; 
 }
 
 /* 6. OBRAZEK NA SAMEJ DOLE W PRAWYM ROGU */
@@ -126,19 +98,63 @@ body {
     bottom: 0; 
     right: 0;
     
-    border-top: 2px solid black;
-    border-left: 2px solid black;
-    border-top-left-radius: 6px;
+    border-top: 3px solid black;   /* ZMIANA: Grubsza ramka kontenera (z 2px na 3px) */
+    border-left: 3px solid black;  /* ZMIANA: Grubsza ramka kontenera (z 2px na 3px) */
+    border-top-left-radius: 8px;   /* ZMIANA: Większe zaokrąglenie pasujące do reszty strony */
     
     background-color: #ffffff; 
-    padding: 10px; 
+    padding: 10px;                 /* Lekko większy odstęp wokół zdjęcia */
 }
 
+/* ZMIANA: Stylizacja samego zdjęcia - dodana ramka i zwiększony rozmiar */
 .strefa-obrazka img {
-    max-height: 200px; 
+    max-height: clamp(200px, 40vh, 400px); /* ZMIANA: Zwiększona wysokość (było max 180px, teraz na dużych ekranach do 260px) */
     width: auto;        
     display: block;
+    
+    border: 3px solid black;       /* NOWOŚĆ: Gruba czarna ramka bezpośrednio na zdjęciu */
+    border-radius: 4px;            /* NOWOŚĆ: Delikatne zaokrąglenie rogów samego zdjęcia */
 }
+
+
+/* 4. LEWY GIGANTYCZNY TEKST W SŁUPKU */
+.tesktl {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    gap: 5px;                /* Dodany stały odstęp między liniami tekstu */
+    align-items: flex-start; 
+    margin-bottom: 30px;
+}
+
+/* ZMIANA: Czcionka dopasowuje się do szerokości kontenera (vw) i ma blokadę wielkości */
+.otekst {
+    font-size: clamp(32px, 7.5vw, 56px); 
+    font-weight: 900; 
+    line-height: 0.9; 
+    text-transform: uppercase; 
+    color: black;
+}
+
+.szer {
+    width: 100%;             /* ZMIANA: tekst zajmuje tyle miejsca, ile potrzebuje, nie blokuje go 300px */
+    max-width: 400px;
+}
+
+/* 5. TEKST PO PRAWEJ NA SAMEJ GÓRZE */
+.strefa-tekstu {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    text-align: right; 
+    font-size: 14px;         /* ZMIANA: lekko zmniejszona dla lepszego balansu */
+    font-weight: bold;
+    color: #333;
+    width: auto; 
+    max-width: 180px;        /* ZMIANA: zmniejszona szerokość, by nie nachodziła na imię */
+}
+
+
 
 .blok {
     display: block;
@@ -150,17 +166,13 @@ body {
     border: 3px solid black;
     background-color: white;
     padding: 25px;
-    
-    /* Trik na nakładanie się ramek: każdy kolejny blok unosi się o 3px w górę */
     margin-top: -3px; 
-    
-    /* Domyślnie rogi są ostre w miejscu łączenia bloków */
     border-radius: 0px; 
 }
 
 /* Nagłówki wewnątrz sekcji */
 .sekcja-brutal h2 {
-    font-size: 24px;
+    font-size: clamp(20px, 4vw, 24px); /* Płynna wielkość nagłówka */
     font-weight: 900;
     margin-bottom: 12px;
     text-transform: uppercase;
@@ -168,13 +180,14 @@ body {
 
 /* Tekst wewnątrz sekcji */
 .sekcja-brutal p {
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.6;
     color: #222;
 }
 
-/* Specjalna klasa dla OSTATNIEJ sekcji na stronie (Kontakt), która ładnie zamyka dół */
+/* Ostatnia sekcja zamyka dół */
 .sekcja-ostatnia {
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
+    text-wrap: wrap;
 }
