@@ -2,7 +2,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Zapobiega rozpychaniu przez ramki */
+    box-sizing: border-box; 
 }
 
 body {
@@ -10,14 +10,14 @@ body {
     background-image: url(images.jpg);
     font-family: sans-serif;
     background-position: center; 
-    background-attachment: fixed; /* Dodane: tło zostaje w miejscu przy skrolowaniu */
+    background-attachment: fixed; 
 }
 
-/* ZMIANA: Kontener jest teraz elastyczny na mniejszych ekranach */
+
 .strona-szerokosc {
-    width: 100%;             /* Na telefonach bierze całą szerokość */
-    max-width: 723px;        /* Na dużych ekranach zatrzymuje się na Twoich 723px */
-    margin: 0 auto;          /* Idealnie środkuje blok w poziomie */
+    width: 100%;             
+    max-width: 723px;        
+    margin: 0 auto;         
 }
 
 /* 2. MENU GÓRNE (FLEX) */
@@ -26,24 +26,23 @@ body {
     flex-direction: row;
     align-items: stretch;
     justify-content: space-between; 
-    flex-wrap: nowrap;       /* ZMIANA: elementy menu nie będą przeskakiwać do nowej linii */
+    flex-wrap: nowrap;      
     margin-bottom: 0; 
 }
 
 .elem {
     flex: 1 1 0%; 
-    padding: 10px 5px;       /* ZMIANA: mniejszy padding boczny, żeby napisy zmieściły się na telefonie */
+    padding: 10px 5px;       
     margin-left: -2px; 
     background-color: white;
     display: flex;
     align-items: center;     
     justify-content: center; 
-    text-decoration: none;   /* Usunięcie podkreślenia linków */
+    text-decoration: none;   
     color: black;
-    font-size: 14px;         /* ZMIANA: bezpieczna wielkość dla małych ekranów */
+    font-size: 14px;         
 }
 
-/* ZMIANA: Na bardzo małych telefonach zmniejszamy czcionkę w menu, żeby tekst nie wystawał */
 @media (max-width: 480px) {
     .elem {
         font-size: 11px;
@@ -55,7 +54,7 @@ body {
     border: 2px solid black;
 }
 
-/* Zaokrąglenia górnego paska */
+
 .elem:first-child {
     margin-left: 0;
     border-top-left-radius: 8px;
@@ -75,59 +74,61 @@ body {
     .tekstD { font-size: 11px; }
 }
 
-/* 3. DOLNY DUŻY BLOK (HERO) */
-/* 3. DOLNY DUŻY BLOK (HERO) */
+
 .duzyblokaha {
     width: 100%;
-    min-height: 380px;       /* Lekko zwiększona wysokość minimalna dla balansu */
+    min-height: 380px;       
     border: 3px solid black; 
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
     background-color: white;
     margin-top: -2px; 
     position: relative; 
-    padding: 20px 15px 180px 15px; /* ZMIANA: Zwiększony dolny padding z 120px na 180px, robi miejsce na większy obrazek */
+    padding: 20px 15px 180px 15px; 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-/* 6. OBRAZEK NA SAMEJ DOLE W PRAWYM ROGU */
+
 .strefa-obrazka {
     position: absolute;
     bottom: 0; 
     right: 0;
     
-    border-top: 3px solid black;   /* ZMIANA: Grubsza ramka kontenera (z 2px na 3px) */
-    border-left: 3px solid black;  /* ZMIANA: Grubsza ramka kontenera (z 2px na 3px) */
-    border-top-left-radius: 8px;   /* ZMIANA: Większe zaokrąglenie pasujące do reszty strony */
+    border-top: 3px solid black;   
+    border-left: 3px solid black;  
+    border-top-left-radius: 8px;   
     
     background-color: #ffffff; 
-    padding: 10px;                 /* Lekko większy odstęp wokół zdjęcia */
+    padding: 10px;                 
 }
 
-/* ZMIANA: Stylizacja samego zdjęcia - dodana ramka i zwiększony rozmiar */
+
 .strefa-obrazka img {
-    max-height: clamp(200px, 40vh, 400px); /* ZMIANA: Zwiększona wysokość (było max 180px, teraz na dużych ekranach do 260px) */
-    width: auto;        
-    display: block;
-    
-    border: 3px solid black;       /* NOWOŚĆ: Gruba czarna ramka bezpośrednio na zdjęciu */
-    border-radius: 4px;            /* NOWOŚĆ: Delikatne zaokrąglenie rogów samego zdjęcia */
+  
+  max-width: 100%;
+  width: auto;
+  max-height: clamp(150px, 30vh, 260px); 
+  height: auto;
+  display: block;
+  object-fit: contain; 
+  border: 3px solid black; 
+  border-radius: 4px; 
 }
 
 
-/* 4. LEWY GIGANTYCZNY TEKST W SŁUPKU */
+
+
 .tesktl {
     display: flex;
     flex-direction: column;
     justify-content: flex-start; 
-    gap: 5px;                /* Dodany stały odstęp między liniami tekstu */
+    gap: 5px;                
     align-items: flex-start; 
     margin-bottom: 30px;
 }
 
-/* ZMIANA: Czcionka dopasowuje się do szerokości kontenera (vw) i ma blokadę wielkości */
 .otekst {
     font-size: clamp(32px, 7.5vw, 56px); 
     font-weight: 900; 
@@ -190,4 +191,50 @@ body {
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
     text-wrap: wrap;
+}
+
+/* GŁÓWNA SEKCJA: JAK PRACUJĘ (Układ dwukolumnowy na komputerach) */
+.sekcja-jak-pracuje {
+    display: flex;
+    gap: 40px;
+}
+
+/* LEWA STRONA (Tytuł sekcji) */
+.sekcja-jak-pracuje {
+    display: flex;
+    gap: 40px;
+}
+
+/* PRAWA STRONA (Kontener na 3 etapy pod sobą) */
+.sekcja-jak-pracuje .prawa-etapy {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Odstęp między etapami */
+}
+
+/* INDYWIDUALNY BLOK ETAPU (Z brutalistyczną czarną ramką) */
+.etap-blok {
+    border: 3px solid black;
+    padding: 20px;
+    background-color: #fff; /* Możesz zmienić kolor tła jeśli chcesz */
+}
+
+.etap-blok h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+/* RESPONSYWNOŚĆ: Na telefonach zmień układ na jedną kolumnę */
+@media (max-width: 768px) {
+    .sekcja-jak-pracuje {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+.lewa-tytul{
+    align-items: center;
+    margin-top:  260px;
 }
