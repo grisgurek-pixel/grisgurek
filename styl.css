@@ -4,6 +4,7 @@ html { scroll-behavior: smooth; scroll-padding-top: 64px; }
 
 body {
     padding: 24px 20px;
+    border-color: #000;
     font-family: Archivo, Arial, sans-serif;
 }
 
