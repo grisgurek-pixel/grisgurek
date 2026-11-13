@@ -4,7 +4,6 @@ html { scroll-behavior: smooth; scroll-padding-top: 64px; }
 
 body {
     padding: 24px 20px;
-    background: #111 url(images.jpg) center / cover no-repeat fixed;
     font-family: Archivo, Arial, sans-serif;
 }
 
