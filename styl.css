@@ -1,228 +1,145 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box; 
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 64px; }
 
 body {
-    padding: 20px;
-    background-image: url(images.jpg);
-    font-family: sans-serif;
-    background-position: center; 
-    background-attachment: fixed; 
+    padding: 24px 20px;
+    background: #111 url(images.jpg) center / cover no-repeat fixed;
+    font-family: Archivo, Arial, sans-serif;
 }
-.kolor{
-    background-color:lightcoral;
+
+/* kolory */
+.czer { background: #ec4e2c; }
+.zol { background: #ffd91a; }
+.bia { background: #fff; }
+
+.strona { max-width: 880px; margin: 0 auto; box-shadow: 10px 10px 0 #000; }
+
+/* menu */
+.menu {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border: 3px solid #000;
+    border-right: 0;
+    border-bottom: 0;
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
 }
-.strona-szerokosc {
-    width: 100%;             
-    max-width: 723px;        
-    margin: 0 auto;         
-}
-.zolty{
-    background-color: yellow;
-}
-.flex {
+
+.el {
     display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    justify-content: space-between; 
-    flex-wrap: nowrap;      
-    margin-bottom: 0; 
+    align-items: center;
+    justify-content: center;
+    padding: 14px 6px;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    font: 16px Anton, Impact, sans-serif;
+    letter-spacing: .06em;
+    border: solid #000;
+    border-width: 0 3px 3px 0;
 }
 
-.elem {
-    flex: 1 1 0%; 
-    padding: 10px 5px;       
-    margin-left: -2px; 
-    display: flex;
-    align-items: center;     
-    justify-content: center; 
-    text-decoration: none;   
-    color: black;
-    font-size: 14px;         
-}
-.bialy{
-    background-color: gray;
-}
-@media (max-width: 480px) {
-    .elem {
-        font-size: 11px;
-        padding: 8px 2px;
-    }
+a.el:hover { background: #000; color: #ffd91a; }
+.logo { background: #000; color: #fff; font-size: 26px; }
+
+/* wszystkie bloki pod menu */
+.duzy, .pasek, .sek { border: 3px solid #000; border-top: 0; }
+
+/* hero */
+.duzy {
+    display: grid;
+    grid-template-columns: 1fr minmax(220px, 38%);
+    grid-template-rows: auto auto 1fr;
+    background: #ffd91a;
 }
 
-.ramka {
-    border: 2px solid black;
-}
+.tytul { padding: 28px 24px 18px; }
 
-
-.elem:first-child {
-    margin-left: 0;
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 0px; 
-}
-
-.elem:last-child {
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 0px; 
-}
-
-.tekstD {
-    font-size: 14px;
-    font-weight: bold;
-}
-@media (max-width: 480px) {
-    .tekstD { font-size: 11px; }
-}
-
-
-.duzyblokaha {
-    width: 100%;
-    min-height: 380px;       
-    border: 3px solid black; 
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-    background-color: white;
-    margin-top: -2px; 
-    position: relative; 
-    padding: 20px 15px 180px 15px; 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: yellow
-}
-
-
-.strefa-obrazka {
-    position: absolute;
-    bottom: 0; 
-    right: 0;
-    
-    border-top: 3px solid black;   
-    border-left: 3px solid black;  
-    border-top-left-radius: 8px;   
-    
-    background-color: red; 
-    padding: 10px;                 
-}
-
-.strefa-obrazka img {
-  
-  max-width: 100%;
-  width: auto;
-  max-height: clamp(150px, 30vh, 260px); 
-  height: auto;
-  display: block;
-  object-fit: contain; 
-  border: 3px solid black; 
-  border-radius: 4px; 
-}
-
-.tesktl {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; 
-    gap: 5px;
-    align-items: flex-start; 
-    margin-bottom: 30px;
-    
-}
-
-.otekst {
-    font-size: clamp(32px, 7.5vw, 56px); 
-    font-weight: 900; 
-    line-height: 0.9; 
-    text-transform: uppercase; 
-    color: black;
-}
-
-.szer {
-    width: 100%;             
-    max-width: 400px;
-}
-
-.strefa-tekstu {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    text-align: right; 
-    font-size: 14px;         
-    font-weight: bold;
-    color: #333;
-    width: auto; 
-    max-width: 180px;        
-}
-
-.blok {
-    display: block;
-}
-
-.sekcja-brutal {
-    width: 100%;
-    border: 3px solid black;
-    /* background-color: white; */
-    padding: 25px;
-    margin-top: -3px; 
-    border-radius: 0px; 
-}
-
-.sekcja-brutal h2 {
-    font-size: clamp(20px, 4vw, 24px); 
-    font-weight: 900;
-    margin-bottom: 12px;
+.t1 {
+    font: clamp(52px, 11vw, 104px) / .92 Anton, Impact, sans-serif;
     text-transform: uppercase;
 }
 
-.sekcja-brutal p {
-    font-size: 15px;
-    line-height: 1.6;
-    color: #222;
+.kwadrat {
+    margin: 0 24px;
+    max-width: 340px;
+    padding: 12px 14px;
+    background: #fff;
+    border: 3px solid #000;
+    box-shadow: 5px 5px 0 #000;
+    font-size: 13px;
+    line-height: 1.45;
+    font-weight: 700;
 }
 
-.sekcja-ostatnia {
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
-    text-wrap: wrap;
+.t2 {
+    align-self: end;
+    max-width: 340px;
+    padding: 28px 24px 22px;
+    font-size: 12px;
+    line-height: 1.4;
+    font-weight: 700;
+    text-transform: uppercase;
 }
 
-.sekcja-jak-pracuje {
-    display: flex;
-    gap: 40px;
+.foto {
+    grid-column: 2;
+    grid-row: 1 / 4;
+    padding: 14px;
+    background: #ec4e2c;
+    border-left: 3px solid #000;
 }
 
-.sekcja-jak-pracuje {
-    display: flex;
-    gap: 40px;
+.foto img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 3px solid #000;
 }
 
-.sekcja-jak-pracuje .prawa-etapy {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+/* pasek */
+.pasek {
+    padding: 14px 24px;
+    background: #000;
+    color: #fff;
+    font: clamp(16px, 3.2vw, 22px) Anton, Impact, sans-serif;
+    letter-spacing: .06em;
+    text-transform: uppercase;
 }
 
-.etap-blok {
-    border: 3px solid black;
-    padding: 20px;
-    background-color: #fff; 
+.pasek span { color: #ffd91a; margin-right: 18px; }
+
+/* sekcje */
+.sek { padding: 32px 28px; }
+
+.sek h2 {
+    margin-bottom: 16px;
+    font: clamp(34px, 6vw, 52px) / .95 Anton, Impact, sans-serif;
+    text-transform: uppercase;
 }
 
-.etap-blok h3 {
-    margin-top: 0;
-    margin-bottom: 10px;
-    font-size: 1.2rem;
-    letter-spacing: 1px;
-}
+.sek p { max-width: 62ch; font-size: 16px; line-height: 1.6; }
+.sek a { color: #000; font-weight: 700; }
+.ost { border-radius: 0 0 8px 8px; }
 
+/* jak pracuję */
+.sek2 { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; align-items: center; }
+.prawa { display: grid; gap: 22px; }
+
+.blok { padding: 20px; background: #fff; border: 3px solid #000; box-shadow: 6px 6px 0 #000; }
+.blok h3 { margin-bottom: 10px; font: 24px Anton, Impact, sans-serif; letter-spacing: .04em; }
+
+/* telefon */
 @media (max-width: 768px) {
-    .sekcja-jak-pracuje {
-        flex-direction: column;
-        gap: 20px;
-    }
-}
-.lewa-tytul{
-    align-items: center;
-    margin-top:  260px;
+    body { padding: 10px; }
+    .menu { grid-template-columns: repeat(3, 1fr); }
+    .el { padding: 10px 2px; font-size: 13px; letter-spacing: .03em; }
+    .logo { font-size: 20px; }
+    .duzy, .sek2 { grid-template-columns: 1fr; }
+    .foto { grid-column: auto; grid-row: auto; border-left: 0; border-top: 3px solid #000; }
 }

@@ -1,89 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio KRZYSZTOF HUREK</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styl.css">
 </head>
 <body>
-    <div class="strona-szerokosc">
+    <div class="strona">
 
         <!-- 1. MENU GÓRNE -->
-        <div class="flex">
-            <div class="elem ramka tekstD bialy">BRUT</div>
-            <a href="#omnie" class="elem ramka kolor">ABOUT ME</a>
-            <a href="#prace" class="elem ramka bialy ">PRACE</a>
-            <a href="#jak-pracuje" class="elem ramka kolor">JAK PRACUJĘ</a>
-            <a href="#doswiadczenie" class="elem ramka bialy">DOŚWIADCZENIE</a>
-            <a href="#kontakt" class="elem ramka kolor">KONTAKT</a>
+        <div class="menu">
+            <div class="el logo">BRUT</div>
+            <a href="#omnie" class="el czer">ABOUT ME</a>
+            <a href="#prace" class="el bia">PRACE</a>
+            <a href="#jak-pracuje" class="el czer">JAK PRACUJĘ</a>
+            <a href="#doswiadczenie" class="el bia">DOŚWIADCZENIE</a>
+            <a href="#kontakt" class="el czer">KONTAKT</a>
         </div>
 
-        <!-- 2. GŁÓWNY HERO BLOK -->
-        <div class="duzyblokaha">
-            <div class="tesktl">
-                <div class="otekst szer">KRZYSZTOF</div>
-                <div class="otekst szer">HUREK</div>
-                <div class="otekst szer">DESIGNER</div>
+        <!-- 2. HERO -->
+        <div class="duzy">
+            <div class="tytul">
+                <div class="t1">KRZYSZTOF</div>
+                <div class="t1">HUREK</div>
+                <div class="t1">DESIGNER</div>
             </div>
-            <div>
-                I design
+            <div class="kwadrat">
+                I design everything if you want me to do it i'll do it but slowly and probably not with my own intelligence (AI will help)
             </div>
-            <div class="strefa-tekstu">
+            <div class="t2">
                 Jeśli chcesz mieć zrobione coś porządnie i szybko to wybierz kogoś innego :)
             </div>
-            <div class="strefa-obrazka">
-                <img src="GettyImages-1170020493.webp" alt="Projekt">
+            <div class="foto">
+                <img src="GettyImages-1170020493.webp" alt="Betonowy budynek w stylu brutalistycznym">
             </div>
         </div>
 
-        <!-- 3. SEKCJA: O MNIE -->
-        <div id="omnie" class="sekcja-brutal bialy">
+        <!-- PASEK -->
+        <div class="pasek"><span>(2026)</span> Nie ścigam się z innymi. Robię po swojemu.</div>
+
+        <!-- 3. O MNIE -->
+        <div id="omnie" class="sek bia">
             <h2>ABOUT ME</h2>
             <p>Jestem uczniem technikum mam 17 lat tak w sumie to nie wiem co robię na kierunku technik informatyk.</p>
         </div>
 
-        <!-- 4. SEKCJA: PRACE -->
-        <div id="prace" class="sekcja-brutal zolty">
+        <!-- 4. PRACE -->
+        <div id="prace" class="sek zol">
             <h2>PRACE</h2>
             <p>Poniżej moje projekty:</p>
         </div>
 
-        <!-- NOWOŚĆ. SEKCJA: JAK PRACUJĘ -->
-        <div id="jak-pracuje" class="sekcja-brutal sekcja-jak-pracuje bialy">
-            <div class="lewa-tytul">
+        <!-- 5. JAK PRACUJĘ -->
+        <div id="jak-pracuje" class="sek sek2 bia">
+            <div>
                 <h2>JAK PRACUJĘ</h2>
                 <p>Moje bezkompromisowe podejście do tworzenia projektów krok po kroku.</p>
             </div>
-            <div class="prawa-etapy">
-                <div class="etap-blok">
+            <div class="prawa">
+                <div class="blok">
                     <h3>01. ANALIZA I MYŚLENIE</h3>
                     <p>Długo zastanawiam się nad problemem, zanim w ogóle otworzę program graficzny lub edytor kodu.</p>
                 </div>
-                <div class="etap-blok">
+                <div class="blok">
                     <h3>02. PROTOTYPOWANIE</h3>
                     <p>Tworzę surowe, brutalne szkice i układy, które mają przede wszystkim działać, a nie tylko ładnie wyglądać.</p>
                 </div>
-                <div class="etap-blok">
+                <div class="blok">
                     <h3>03. POWOLNA REALIZACJA</h3>
                     <p>Robię powoli, ale dokładnie. Jak wspominałem wyżej – jeśli ma być szybko, to zły adres.</p>
                 </div>
             </div>
         </div>
 
-        <!-- 5. SEKCJA: DOŚWIADCZENIE -->
-        <div id="doswiadczenie" class="sekcja-brutal bialy">
+        <!-- 6. DOŚWIADCZENIE -->
+        <div id="doswiadczenie" class="sek bia">
             <h2>DOŚWIADCZENIE</h2>
             <p>W 2022 zacząłem edukację w ZSE w Opolu na kierunku technik informatyk. W roku 2026 zdałem egzamin w kwalifikacji INF02 i od września 2026 przygotowuję się do egzaminu INF03</p>
         </div>
 
-        <!-- 6. SEKCJA: KONTAKT (Ostatnia - zamyka dół) -->
-        <div id="kontakt" class="sekcja-brutal sekcja-ostatnia zolty">
+        <!-- 7. KONTAKT -->
+        <div id="kontakt" class="sek ost zol">
             <h2>KONTAKT</h2>
             <p>Masz pytania? Napisz do mnie na maila lub znajdź mnie w mediach społecznościowych.</p>
-            <p>E-mail: jakostak.aha@example.com</p>
+            <p>E-mail: <a href="mailto:jakostak.aha@example.com">jakostak.aha@example.com</a></p>
             <p>Instagram: exampleaha</p>
-            <p>Nr.telefonu: +1 213 742 069</p>
+            <p>Nr telefonu: <a href="tel:+1213742069">+1 213 742 069</a></p>
             <p><small>© 2026 Krzysztof Hurek</small></p>
         </div>
 
